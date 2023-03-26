@@ -5,7 +5,7 @@ for i in n:
     lista.append(int(i))
 
 
-def recursive(soma, total, mov):
+def recursive(soma, total, mov, *args):
     if(soma == total):
         return mov
     if(soma > total):

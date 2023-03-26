@@ -5,17 +5,24 @@ entrada = input().split(" ")
 lista = []
 for i in entrada:
     lista.append(int(i))
-
 lista = sorted(lista)
 
+
 inicio = 0
-fim = len(lista) - 1
-
-pares = []
-for i in range(len(lista) - 1):
-    for j in range(i+1, len(lista)):
-        if(lista[j] - lista[i] <= 5):
-            pares.append([lista[i], lista[j]])
-
-
-print(pares)
+numero = 0
+fim = 1
+nPessoas = 1
+maior = 1
+while(inicio < len(lista) and fim < len(lista)):
+    
+    if(abs(lista[inicio] - lista[fim]) <= 5):
+        nPessoas = abs(fim - inicio) + 1
+        fim+=1
+    else:
+        inicio+=1
+        fim+=1
+        
+    if(nPessoas > maior):
+        maior = nPessoas
+        
+print(nPessoas)
