@@ -9,9 +9,12 @@ for i in a:
 listaA = sorted(listaA)
 listaB = []
 
+index = 0
 for j in b:
-    listaB.append(int(j))
+    listaB.append([int(j), index])
+    index+=1
 
+listaB = sorted(listaB)
 
 def binarySearch(inicio, final, lista, element):
     meio = inicio + (final - inicio)// 2
@@ -41,7 +44,8 @@ def binarySearchIterativo(inicio, final, lista, element):
     return meio
 
 for i in listaB:
-    print(binarySearchIterativo(0, len(listaA) - 1, listaA, i) + 1, end=" ")
+    inicio = binarySearchIterativo(0, len(listaA) - 1, listaA, i[0])
+    print(inicio + 1, end=" ")
 '''
 for i in listaB:
     print(binarySearch(0, len(listaA) - 1, listaA, i) + 1, end=" ")'''
