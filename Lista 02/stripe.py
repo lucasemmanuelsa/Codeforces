@@ -6,7 +6,16 @@ lista = []
 for i in entrada:
     lista.append(int(i))
 
+for j in range(1,len(lista)):
+    lista[j] = lista[j] + lista[j - 1]
 
-lista = sorted(lista)
 
-print(lista)
+
+count = 0
+for k in range(len(lista) - 1):
+    esquerda = lista[k]
+    direita = lista[len(lista) - 1] - esquerda
+    if(esquerda == direita):
+        count+=1
+
+print(count)

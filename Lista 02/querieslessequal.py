@@ -16,36 +16,23 @@ for j in b:
 
 listaB = sorted(listaB)
 
-def binarySearch(inicio, final, lista, element):
-    meio = inicio + (final - inicio)// 2
-    if(inicio > final):
-        return meio
-    if(element == listaA[meio]):
-        return meio
-    if(element < lista[meio]):
-        if(element < lista[meio - 1]):
-            return binarySearch(inicio, meio - 1, lista, element)
+def iterativo(lista,element,index):
+    while(index < len(lista)):
+        if(lista[index] <= element):
+            index+=1
         else:
-            return meio - 1
-    else:
-        return binarySearch(meio + 1, final, lista, element)
+            return index
+    return index
+    
 
-def binarySearchIterativo(inicio, final, lista, element):
-    while(inicio <= final):
-        meio = inicio + (final - inicio)//2
-        if(element == lista[meio]):
-            return meio
-        elif(element < lista[meio]):
-            if(element < lista[meio - 1]):
-                return meio -1
-            final = meio - 1
-        else:
-            inicio = meio + 1
-    return meio
+inicio = 0
+for i in listaB:
+    inicio = iterativo(listaA, i[0], inicio)
+    i.append(inicio)
 
-for i in listaB:
-    inicio = binarySearchIterativo(0, len(listaA) - 1, listaA, i[0])
-    print(inicio + 1, end=" ")
-'''
-for i in listaB:
-    print(binarySearch(0, len(listaA) - 1, listaA, i) + 1, end=" ")'''
+resposta = listaB.copy()
+for j in listaB:
+    resposta[j[1]] = j[2]
+
+for m in resposta:
+    print(m, end=" ")
