@@ -9,7 +9,7 @@ def search(array, inicio, fim):
             return search(array, inicio, meio - 1)
         else:
             return search(array, meio + 1, fim)
-#dois casos de borda >>> caso o meio seja o primeiro elemento ou ultimo elemento
+#dois casos de borda >>> caso o meio seja o primeiro elemento ou ultimo elemento da quebrado no meio+1 ou meio -1!
 entrada = input().split(" ")
 
 lista = []
