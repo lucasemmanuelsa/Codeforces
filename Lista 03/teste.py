@@ -1,7 +1,10 @@
 dicionario = {}
 
-dicionario['abacaba'] = 0
+dicionario['abacaba'] = 'misha'
 print(dicionario)
 
-if('abacaba' in dicionario):
-    print(1)
+entrada = 'teste'
+
+print(dicionario)
+dicionario.popitem()
+print(dicionario)
