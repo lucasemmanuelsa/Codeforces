@@ -4,25 +4,25 @@ string = input()
 
 
 lista = [0] * 10
-listaHead = [0]
-listaTail = [-9]
+listaHead = [0,1,2,3,4,5,6,7,8,9]
+listaTail = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
+
+heapq.heapify(listaHead)
+heapq.heapify(listaTail)
 
 
 for a in string:
-    
     if(a == "L"):
         el = heapq.heappop(listaHead)
         lista[el] = 1
-        heapq.heappush(listaHead, el+1)
-        if(el in listaTail):
-            listaTail.remove(el)
+        if(-el in listaTail):
+            listaTail.remove(-el)
             heapq.heapify(listaTail)
     elif(a == "R"):
         el = heapq.heappop(listaTail)
         lista[-el] = 1
-        heapq.heappush(listaTail, el + 1)
         if(-el in listaHead):
-            listaHead.remove(el)
+            listaHead.remove(-el)
             heapq.heapify(listaHead)
     else:
         heapq.heappush(listaHead, int(a))
