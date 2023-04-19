@@ -20,21 +20,13 @@ def gcd(a,b):
             else:
                 fator+=1
 
-
-def lcm(a,b):
-    return (a * b) / gcd(a, b)
-l,r = map(int, input().split())
-
 quebra = False
-for a in range(l, r+1):
-    for b in range(l, r+1):
-        lc= lcm(a,b)
-        if(lc >= l and lc <= r):
-            print(a,b)
+for a in range(10,99+1):
+    for b in range(100, 999+1):
+        if(len(str(gcd(a,b))) == 1):
+            print(f'{a} {b}')
             quebra = True
             break
     if(quebra):
         break
-
-
-
+            
