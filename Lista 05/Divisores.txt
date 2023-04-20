@@ -1,0 +1,18 @@
+Divisores:
+complexidade O(sqrt(n))
+
+OBS1: Para cada divisor até a raiz de N, N/esseDivisor também será um divisor de N
+
+ex: divisores de 100
+
+1 2 4 5 10 20 25 50 100
+
+Assim, sqrt(100) = 10
+ou seja, só precisamos checar até a raiz do número, que no caso é 10.
+
+Pois, se você analisar direito, pela OBS1, 1 é divisor de 100, logo 100/1 (igual a 100) também será um divisor,
+o mesmo com o numero 2, se a gente checa e sabe que 2 é divisor de 100, logo 100/2 (igual a 50) também é um divisor
+de 100, o mesmo funciona com o número 4, assim, 100/4 (igual a 25) também é um divisor de 100, 5 -> 100/5 (igual 20)
+10 -> 100/10 (igual 10) - nesse ultimo caso, a divisao de N pela raiz é igual a propria raiz, entao so precisamos contabilizar o 10 uma vez.
+
+Assim os comprova-se que os divisores de 100 são: 1 100 2 50 4 25 5 20 10

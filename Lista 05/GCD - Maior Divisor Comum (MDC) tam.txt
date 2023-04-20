@@ -1,0 +1,14 @@
+GCD - Maior Divisor Comum (MDC) também conhecido como HCF (Maior Fator Comum)
+
+
+36 = 2 x 2 x 3 x 3
+60 = 2 x 2 x 3 x 5
+
+gcd = multiplication of common factors, so:
+2 x 2 x 3 = 12
+
+Código na lista
+complexidade O(min(a,b))
+
+Pode ser otimizado utilizando operação modular
+Complexidade O(log(min(a,b)))

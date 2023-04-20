@@ -1,0 +1,5 @@
+Para checar se um numero N é primo:
+solução - percorrer até a raiz do numero checando se os numeros são divisiveis por N
+
+Para checar TODOS os numeros primos até um numero N
+solução - crivo de eratostenes

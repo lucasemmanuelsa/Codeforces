@@ -1,0 +1,20 @@
+LCM - MMC - Mínimo múltiplo comum
+
+Menor numero que pode ser dividido entre os dois numeros
+
+1 solução:
+encontrar todos os fatores primos de ambos os numeros (a,b)
+encontrar a uniao de todos os fatores presentes em ambos os numeros
+retornar a multiplicação entre os elementos da uniao
+
+15 = 5x3
+25 = 5x5
+Union = 5x5x3 = 75
+
+
+2 solução:
+axb = LCM(a, b) * MDC (a, b)
+
+LCM(a, b) = (axb) / GCD(a, b)
+
+Complexidade O(log(min(a,b)))
