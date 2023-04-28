@@ -1,0 +1,58 @@
+Aritmética modular
+
+A / B = Q resto R
+
+10 / 7 = 1 resto 3
+
+Se estamos interessados no resto podemos utilizar
+
+A mod B = R
+
+
+Módulo de congruência
+
+A ≡ B(mod C) -> A é congruente a B módulo C
+A diferença entre quaisquer dois valores em uma fatia é um multiplo de C
+
+A mod C = B mod C
+
+C | (A-B)
+
+A = B + K * C  -> 13 ≡ 23 (mod 5) ex: 13 = 23 + K * 5  assim, K = -2
+
+
+Relação de equivalência
+A≡A (mod C)
+
+se A ≡ B (mod C) então B ≡ A (mod C)
+
+se A ≡ B (mod C) e B ≡ D (mod C) então A ≡ D (mod C)
+
+
+O teorema Quociente - Resto
+
+A = B * Q + R 0 <= R < B
+
+ex:
+A = 7, B = 2
+
+7 = 2 * 3 + 1
+7 mod 2 = 1
+
+A = -16, B = 26
+-16 = 26 * - 1 + 10
+-16 mod 26 = 10
+
+Adição e subtração modular
+(A + B) mod C = (A mod C + B mod C) mod C
+(A - B) mod C = (A mod C - B mod C) mod C
+
+Multiplicação modular
+(A * B) mod C = (A mod C * B mod C) mod C
+
+Exponenciação modular
+A^B mod C = ( (A mod C)^B ) mod C
+
+Exponenciação rápida
+qnd B é uma potencia de 2
+para qualquer valor de B, faz binário
