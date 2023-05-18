@@ -1,29 +1,28 @@
-import itertools
-n = int(input())
-arr = list(map(int, input().split()))
+MOD = int(1e9+7)
+maxN = 2 * int(1e6)
 
-if n == 5 and arr[0] == 934033764 and arr[1] == 2 and arr[2] == 7 and arr[3] == 4 and arr[4] == 1:
-    print(934033750)
-    exit()
-if n == 1:
-    print(arr[0])
-    exit()
+fact = [1] * maxN
+inv = [1] * maxN
 
-total = sum(arr)
-ans = float('inf')
+def inverse(x):
+    res = 1
+    expo = MOD-2
+    while expo > 0:
+        if expo&1:
+            res = (res * x) % MOD
+        x = (x * x) % MOD
+        expo >>= 1
+    return res
 
-if max(arr) > total / 2:
-    arr = [x for x in arr if x != max(arr)]
-    n -= 1
+def init():
+    fact[0] = inv[0] = 1
+    for i in range(1, maxN):
+        fact[i] = i * fact[i-1] % MOD
+        inv[i] = inverse(fact[i])
 
-for i in range(1, (n + 1) // 2 + 1):
-    for comb1 in itertools.combinations(arr, i):
-        s1 = sum(comb1)
-        s2 = total - s1
-        curr = abs(s1 - s2)
-        ans = min(ans, curr)
-        if ans == 0:
-            print(ans)
-            exit()
+def choose(n, k):
+    return fact[n] * inv[k] % MOD * inv[n-k] % MOD
 
-print(ans)
+N, M = map(int, input().split())
+init()
+print(choose(N+M-1, M))
