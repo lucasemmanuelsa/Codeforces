@@ -1,0 +1,99 @@
+@author lucas.alves
+
+Temos duas formas de representar grafos no computador
+
+- Matriz de adjacencia
+Dado um grafo de 4 vertices, por exemplo, será criado uma matriz 4x4
+no qual o elemento a[i][j] será 1 se tiver adjacencia entre os vertices i e j
+e a[i][j] = 0 se nao houver aresta indo de i para j
+ex:
+
+   1 2 3 4
+1[[0,1,1,0]
+2 [1,0,0,1]
+3 [1,0,1,0]
+4 [0,1,0,0]]
+
+> Se o grafo for ponderado nao representamos por bit, e sim pelo peso
+
+ex:
+
+   1 2 3 4
+1[[0,5,9,0]
+2 [5,0,0,2]
+3 [9,0,1,0]
+4 [0,2,0,0]]
+
+OBS: CUIDADO, Deve-se definir um padrao para aresta que nao tem valor valido.(dizer que é não aresta)
+Como você vai saber se o 0 corresponde a um valor válido ou nao? DEFINA PADRÃO DEFAULT
+
+>Se o grafo for dirigido, mesmo procedimento
+
+ex: se for direcionado de 1 para 2 e nao for de 2 para 1, entao, na matriz
+o 1 para 2 fica '1' e o 2 para 1 fica '0'.
+
+- Listas de adjacências
+
+ex:
+
+1 -> 2 -> 3
+2 -> 1 -> 3 -> 4
+3 -> 1 -> 2
+4 -> 2
+
+>se for ponderado
+1 -> (2, peso) -> (3, peso)
+2 -> (1, peso) -> (3, peso) -> (4, peso)
+3 -> (1, peso) -> (2, peso)
+4 -> (2, peso)
+
+>se for dirigido, mesma coisa, só reduz o tamanho das Listas
+1 -> (2, peso)
+2 -> (3, peso)
+3 -> (1, peso)
+4 -> (2, peso)
+
+Qual melhor de usar?
+Depende das operaçãoes que queremos executar
+
+Primeiro
+Definições
+Denso: Quando possui muitas arestas em relação ao número de vértices
+Esparso: Com poucas arestas
+
+Segundo
+Densidade - Com grafos densos, a lista de adjacencias ocupa mais memoria, ficam enormes
+Já a matriz só tem alguns zeros trocados por 1s
+
+Operações:
+
+{
+Buscas são mais rápidas com listas de adjacências
+pois dado um nó ja temos uma lista de suas adjacencias
+
+No caso da matriz, teremos que varrer a linha desse nó, buscando as arestas
+pois pode ter na linha valores: valido,valido,invalido,valido,invalido,invalido...
+}
+
+{
+Testar existencia de aresta entre dois vértices é mais rápido com matrizes de adjacencia
+basta olhar a célula correspondente na matriz
+
+No caso da lista, teremos que varrer a lista correspondente ao nó inicial da aresta
+}
+
+{
+Encontrar os predecessores de um determinado nó é mais rápido com matrizes de
+adjacências
+Basta olhar a coluna correspondente ao nó na matriz
+
+No caso da lista, teremos que varrer a lista de adjacencias de todos os demais nós
+}
+
+
+DFS - Busca em profundidade
+- Usa pilha
+
+BFS - Busca em largura
+- Usa fila
+- Por nivel
